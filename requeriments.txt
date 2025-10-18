@@ -1,0 +1,5 @@
+# Bibliotecas necessárias para nosso projeto
+
+Flask
+google-generativeai
+python-dotenv

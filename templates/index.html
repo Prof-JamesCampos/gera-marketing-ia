@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gera Marketing com IA</title>
+    <style>
+        /* CSS para deixar a página bonita */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box; /* Importante para o padding não quebrar o layout */
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #155ab6;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #resultado {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            text-align: left;
+            white-space: pre-wrap; /* Mantém as quebras de linha do texto da IA */
+            display: none; /* Começa escondido */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gera Marketing com IA 🚀</h1>
+        <form id="marketing-form">
+            <div class="form-group">
+                <label for="produto">Nome do Produto:</label>
+                <input type="text" id="produto" placeholder="Ex: Fone de ouvido com cancelamento de ruído" required>
+            </div>
+            <div class="form-group">
+                <label for="caracteristicas">Principais Características:</label>
+                <textarea id="caracteristicas" rows="3" placeholder="Ex: Bateria de 30h, design dobrável, conexão Bluetooth 5.2" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="publico">Público-alvo:</label>
+                <input type="text" id="publico" placeholder="Ex: Profissionais que trabalham em home office" required>
+            </div>
+            <button type="submit" id="btn-gerar">Gerar Texto</button>
+        </form>
+        <div id="resultado">
+            </div>
+    </div>
+
+    <script>
+        // JavaScript para fazer a mágica acontecer
+        const form = document.getElementById('marketing-form');
+        const resultadoDiv = document.getElementById('resultado');
+        const botao = document.getElementById('btn-gerar');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            // Pega os valores dos campos
+            const produto = document.getElementById('produto').value;
+            const caracteristicas = document.getElementById('caracteristicas').value;
+            const publico = document.getElementById('publico').value;
+
+            // Mostra feedback para o usuário
+            botao.disabled = true;
+            botao.innerText = 'Gerando...';
+            resultadoDiv.style.display = 'none';
+
+            try {
+                // Envia os dados para o nosso backend (app.py)
+                const response = await fetch('/gerar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ produto, caracteristicas, publico })
+                });
+
+                const data = await response.json();
+
+                // Exibe o resultado ou uma mensagem de erro
+                if (response.ok) {
+                    resultadoDiv.innerText = data.texto_marketing;
+                    resultadoDiv.style.display = 'block';
+                } else {
+                    resultadoDiv.innerText = `Erro: ${data.erro}`;
+                    resultadoDiv.style.display = 'block';
+                }
+
+            } catch (error) {
+                resultadoDiv.innerText = `Erro de conexão: ${error}`;
+                resultadoDiv.style.display = 'block';
+            } finally {
+                // Reativa o botão
+                botao.disabled = false;
+                botao.innerText = 'Gerar Texto';
+            }
+        });
+    </script>
+</body>
+</html>
