@@ -51,7 +51,7 @@ def gerar_marketing():
 
     try:
         # Configura o modelo que vamos usar
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         
         # Envia o prompt para a IA e obtém a resposta
         response = model.generate_content(prompt)
