@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #155ab6;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Caixa de Resultado */
+#resultado {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+#resultado.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#resultado h1, #resultado h2, #resultado h3, #resultado h4, #resultado h5, #resultado h6 {
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+    color: #1a73e8;
+    text-align: center;
+}
+
+#resultado h1 { font-size: 2em; }
+#resultado h2 { font-size: 1.7em; }
+#resultado h3 { font-size: 1.4em; }
+
+#resultado p {
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #3c4043;
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+#resultado hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 1.5em 0;
+}

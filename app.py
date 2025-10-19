@@ -1,5 +1,3 @@
-# app.py
-
 import os
 import google.generativeai as genai
 from flask import Flask, request, jsonify, render_template
