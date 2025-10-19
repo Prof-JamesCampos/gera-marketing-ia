@@ -3,7 +3,7 @@ venv/
 __pycache__/
 
 # Ignorar arquivos de ambiente com segredos (Descomente a linha abaixo para ativar)
-.env
+#.env
 
 # Outros arquivos comuns do sistema operacional
 .DS_Store
