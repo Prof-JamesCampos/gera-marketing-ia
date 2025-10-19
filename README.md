@@ -6,7 +6,7 @@ O objetivo foi passar por todo o ciclo de desenvolvimento: da ideia inicial, con
 
 
 
-## 📋 Principais Funcionalidades
+## Principais Funcionalidades
 
 - **Interface web simples e intuitiva** para inserção de dados do produto (nome, características, público-alvo).
 - **Integração com a API do Google Gemini** para geração de conteúdo dinâmico e inteligente.
@@ -16,7 +16,7 @@ O objetivo foi passar por todo o ciclo de desenvolvimento: da ideia inicial, con
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Backend:** Python, Flask
 - **Inteligência Artificial:** Google Gemini API
@@ -24,7 +24,7 @@ O objetivo foi passar por todo o ciclo de desenvolvimento: da ideia inicial, con
 
 ---
 
-## 🚀 Como Executar o Projeto Localmente
+## Como Executar o Projeto Localmente
 
 Para rodar este projeto no seu ambiente, siga os passos abaixo.
 
@@ -67,7 +67,7 @@ Abra seu navegador e vá para `http://127.0.0.1:5000`.
 
 ---
 
-## ✍️ Autor
+## Autor
 
 Feito com **James Campos**.
 
