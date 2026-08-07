@@ -69,6 +69,6 @@ Abra seu navegador e vá para `http://127.0.0.1:5000`.
 
 ## Autor
 
-Feito com **James Campos**.
+Feito por **James Campos**.
 
 - **GitHub:** [Prof-JamesCampos](https://github.com/Prof-JamesCampos)
